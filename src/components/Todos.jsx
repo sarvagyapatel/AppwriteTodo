@@ -14,10 +14,13 @@ function Todos({ id, allData }) {
   const remove = () => {
     let userId = [...allData.userId];
     let task = [...allData.task];
+    let done = [...allData.done];
 
     userId.splice(id, 1);
     task.splice(id, 1);
+    done.splice(id, 1);
     const temp = {
+      done,
       email,
       userId,
       task,

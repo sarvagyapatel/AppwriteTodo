@@ -46,8 +46,9 @@ function Home() {
 
   return (
     <div className="flex flex-col gap-8 items-center justify-center w-full h-full">
-      <div className="mt-7 ">
-        <h1 className="text-gray-700 underline font-semibold text-2xl">{`Welcome ${name}`}</h1>
+      <div className="mt-7 flex flex-col">
+      <h1 className="text-gray-700 font-semibold text-2xl">Welcome</h1>
+        <h1 className="text-gray-700 underline font-semibold text-2xl">{`${name}`}</h1>
       </div>
       <AddTodo email={email} id={id} />
 
