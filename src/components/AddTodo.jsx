@@ -10,21 +10,26 @@ function AddTodo({ email, id }) {
   const dispatch = useDispatch();
 
   const createTodo = () => {
+    
     appwriteService.getPost(id).then((res) => {
       // console.log(res)
       const userId = res.userId;
       const task = res.task;
+      const done = res.done;
 
       userId.push(nanoid());
       task.push(data);
+      done.push(false);
 
       const temp = {
         email,
+        done,
         userId,
         task,
       };
       appwriteService.updatePost(id,temp).then((res)=>dispatch(addTodo(res)));
     });
+
   };
 
   return (
