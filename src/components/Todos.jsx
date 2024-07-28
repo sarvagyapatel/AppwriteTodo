@@ -46,7 +46,7 @@ function Todos({ id, allData }) {
     });
   };
 
-  const changeColor = ()=>{
+  const changeColor = () => {
     let userId = [...allData.userId];
     let task = [...allData.task];
     let done = [...allData.done];
@@ -62,57 +62,59 @@ function Todos({ id, allData }) {
     appwriteService.updatePost(documentId, temp).then((res) => {
       dispatch(addTodo(res));
     });
-  }
+  };
 
   return (
-    <div className="w-full h-full ">
-      <div className="flex-row flex items-center justify-around rounded-2xl bg-white ">
-      <div className="pe-px">
-        <button
-          type="submit"
-          onClick={() => changeColor()}
-          className="border-2 p-2 shadow-md rounded-lg  border-green-700  bg-green-700 text-white text-lg font-semibold hover:bg-green-900 hover:border-green-900"
-        >
-          {allData.done[id]?"UnMark":"MarkDone"}
-        </button>
-        </div>
-        <div className="float-left w-full">
-          <input
-            type="text"
-            className={`border-2 shadow-md ${allData.done[id]?"bg-green-700":"bg-white"} text-black text-lg rounded-lg p-2 w-full`}
-            value={newTask}
-            readOnly={isEditing}
-            onChange={(e) => {
-              e.preventDefault();
-              setNewTask(e.target.value);
-            }}
-          />
-        </div>
-        <div className="float-right px-4 flex flex-row gap-1 items-center justify-center">
-          <button
-            type="submit"
-            onClick={() => remove()}
-            className="border-2 p-2 shadow-md rounded-lg border-red-700  bg-red-700 text-white text-lg font-semibold hover:bg-red-900 hover:border-red-900"
-          >
-            Delete
-          </button>
-          <button
-            type="submit"
-            onClick={() => {
-              if (isEditing) {
-                setIsEditing(false);
-              } else {
-                setIsEditing(true);
-                update();
-              }
-            }}
-            className="border-2 p-2 shadow-md rounded-lg border-blue-700  bg-blue-700 text-white text-lg font-semibold hover:bg-blue-900 hover:border-blue-900"
-          >
-            {isEditing ? "Edit" : "Update"}
-          </button>
+    <>
+      <div className="w-full h-full flex flex-wrap items-center justify-center">
+        <div className="flex flex-wrap items-center justify-around rounded-2xl w-full gap-0">
+          <div className="float-left w-4/6">
+            <input
+              type="text"
+              className={`border-2 shadow-md ${
+                allData.done[id] ? "bg-green-700" : "bg-white"
+              } text-black text-lg rounded-lg p-2 w-full`}
+              value={newTask}
+              readOnly={isEditing}
+              onChange={(e) => {
+                e.preventDefault();
+                setNewTask(e.target.value);
+              }}
+            />
+          </div>
+          <div className="float-right px-4 flex flex-row gap-1 items-center justify-center">
+            <button
+              type="submit"
+              onClick={() => remove()}
+              className="border-2 p-2 shadow-md rounded-lg border-red-700  bg-red-700 text-white text-lg font-semibold hover:bg-red-900 hover:border-red-900"
+            >
+              Delete
+            </button>
+            <button
+              type="submit"
+              onClick={() => {
+                if (isEditing) {
+                  setIsEditing(false);
+                } else {
+                  setIsEditing(true);
+                  update();
+                }
+              }}
+              className="border-2 p-2 shadow-md rounded-lg border-blue-700  bg-blue-700 text-white text-lg font-semibold hover:bg-blue-900 hover:border-blue-900"
+            >
+              {isEditing ? "Edit" : "Update"}
+            </button>
+            <button
+              type="submit"
+              onClick={() => changeColor()}
+              className="border-2 p-2 shadow-md rounded-lg  border-green-700  bg-green-700 text-white text-lg font-semibold hover:bg-green-900 hover:border-green-900"
+            >
+              {allData.done[id] ? "UnMark" : "MarkDone"}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

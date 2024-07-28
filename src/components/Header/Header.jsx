@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {Container, Logo, LogoutBtn} from '../index'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
@@ -38,7 +38,7 @@ function Header() {
 
 
   return (
-    <header className='py-3 bg-white'>
+    <header className='py-3 w-full'>
       <Container>
         <nav className='flex  items-center justify-center'>
           <div className='mr-4'>

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import './App.css';
 import authService from "./appwrite/auth"
 import {login, logout} from "./store/authSlice"
 import { Footer, Header } from './components'
@@ -23,7 +22,8 @@ function App() {
   }, [])
   
   return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between bg-white'>
+    <>
+    <div className="absolute inset-0 -z-10 h-max w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
       <div className='w-full block'>
         <Header />
         <main>
@@ -31,7 +31,8 @@ function App() {
         </main>
         <Footer />
       </div>
-    </div>
+      </div>
+    </>
   ) : null
 }
 

@@ -1,9 +1,9 @@
-import React from 'react'
+
 import Logo from '../Logo'
 
 export default function Footer() {
   return (
-    <section className="relative overflow-hidden bg-white py-8 mt-20">
+    <section className="relative overflow-hidden  py-8 mt-20 ">
       <div className="container relative z-10 mx-auto px-4">
         <div className="-m-8 flex flex-wrap items-center justify-between">
           <div className="w-auto p-8">
