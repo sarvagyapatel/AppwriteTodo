@@ -30,7 +30,7 @@ function Login() {
     <div
     className='flex items-center justify-center w-full'
     >
-        <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+        <div className="mx-auto w-fit max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10 flex flex-col items-center justify-center">
         <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
                         <Logo width="100%" />
@@ -47,10 +47,10 @@ function Login() {
                     </Link>
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-        <form onSubmit={handleSubmit(login)} className='mt-8'>
-            <div className='space-y-5'>
+        <form onSubmit={handleSubmit(login)} className='mt-8 flex flex-col items-center justify-center'>
+            <div className='space-y-5 '>
                 <Input
-                label="Email: "
+                className="flex flex-row"
                 placeholder="Enter your email"
                 type="email"
                 {...register("email", {
@@ -62,7 +62,6 @@ function Login() {
                 })}
                 />
                 <Input
-                label="Password: "
                 type="password"
                 placeholder="Enter your password"
                 {...register("password", {
