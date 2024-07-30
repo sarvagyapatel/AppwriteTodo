@@ -63,15 +63,31 @@ function Home() {
   } else {
     return (
       <div className="flex flex-col gap-8 items-center justify-center w-full h-full">
-        <div className="mt-7 flex flex-col">
-          <h1 className="text-gray-700 font-semibold text-2xl ">
-            LogIn or SignUp
+        <div className="mt-7 flex flex-col items-center justify-center p-4">
+          <h1 className="text-gray-700 font-semibold text-4xl mb-3">
+            Welcome to Your To-Do List!
           </h1>
-        </div>
-        <div className="mt-7 flex flex-col">
-          <h1 className="text-gray-700 font-semibold text-2xl underline">
-            OR for demo LogIn with (email: example3@gmail.com, password: 123456789)
+          <h1 className="text-black  text-2xl mb-10 font-thin">
+            SignUp or LogIn to get started on managing your tasks
+            effortlessly.
           </h1>
+          <div className="max-w-md rounded-3xl p-px bg-gradient-to-b from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800 ">
+            <div className="rounded-[calc(1.5rem-1px)] p-10 bg-white">
+              <ul
+                className=" flex flex-col text-xl"
+                style={{ listStyleType: "disc", paddingLeft: "20px" }}
+              >
+                <li>Stay Organized: Keep track of your tasks with ease.</li>
+                <li>
+                  Set Priorities: Prioritize your to-dos and never miss a
+                  deadline.
+                </li>
+                <li>
+                  Track Progress: Visualize your progress and stay motivated.
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     );
